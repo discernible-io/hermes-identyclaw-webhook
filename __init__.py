@@ -63,7 +63,7 @@ def register(ctx) -> None:
             validate_config=validate_config,
             is_connected=is_connected,
             required_env=[],
-            install_hint="Requires packages/hermes-identyclaw-auth sidecar",
+            install_hint="Requires hermes-identyclaw-auth sidecar",
             setup_fn=interactive_setup,
             emoji="\U0001f517",
             allow_update_command=False,
