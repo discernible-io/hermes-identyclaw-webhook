@@ -5,7 +5,8 @@ version: 0.1.0
 description: >
   RODiT-signed webhook ingress on /hooks/wake and /hooks/agent (Ed25519 via
   auth sidecar). Separate from Hermes HMAC /webhooks/{route}. Provides
-  send_rodit_webhook outbound tool.
+  send_rodit_webhook outbound tool. Repo: discernible-io/hermes-identyclaw-webhook;
+  plugin id / install directory: identyclaw-webhooks.
 author: Discernible IO
 provides_tools:
   - send_rodit_webhook
