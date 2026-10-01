@@ -63,3 +63,13 @@ bash "$HERMES_HOME/plugins/identyclaw-auth/scripts/install-stock-hermes.sh" \
 | `IDENTYCLAW_AUTH_PORT` | `9910` | Auth sidecar |
 
 Outbound tool: `send_rodit_webhook`.
+
+<!-- discernible-io:product-links -->
+## Links
+
+Maintained by [Discernible](https://www.discernible.io/).
+
+- **Product:** [discernible.io](https://www.discernible.io/)
+- **Get a Passport:** [purchase.identyclaw.com](https://purchase.identyclaw.com) (buy once — no subscription)
+- **Verify HOLA:** [verify.identyclaw.com](https://verify.identyclaw.com)
+<!-- /discernible-io:product-links -->
