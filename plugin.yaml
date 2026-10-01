@@ -8,8 +8,13 @@ description: >
   send_rodit_webhook outbound tool. Repo: discernible-io/hermes-identyclaw-webhook;
   plugin id / install directory: identyclaw-webhooks.
 author: Discernible IO
+manifest_version: 2
+api_version: 1
 provides_tools:
   - send_rodit_webhook
+requires_plugins:
+  - id: identyclaw-auth
+    version_range: ">=0.2.0"
 requires_env: []
 optional_env:
   - name: IDENTYCLAW_HOOKS_PORT
@@ -17,7 +22,7 @@ optional_env:
     prompt: "IdentyClaw hooks port"
     password: false
   - name: IDENTYCLAW_AUTH_PORT
-    description: "Auth sidecar port (default 9910)."
+    description: "Auth sidecar port (default 9910). Enable identyclaw-auth and run `hermes identyclaw sidecar start` first."
     prompt: "Auth sidecar port"
     password: false
   - name: IDENTYCLAW_HOOKS_HOST

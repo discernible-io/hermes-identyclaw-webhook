@@ -3,6 +3,16 @@
 Hermes **platform plugin** (`identyclaw-webhooks`) that serves RODiT-signed
 `/hooks/wake` and `/hooks/agent` (Ed25519 verify via the auth sidecar).
 
+**Depends on** [`identyclaw-auth`](https://github.com/discernible-io/hermes-identyclaw-auth)
+(`requires_plugins`) and a healthy auth sidecar on `:9910`:
+
+```bash
+hermes plugins install discernible-io/hermes-identyclaw-auth --enable
+hermes identyclaw install-deps && hermes identyclaw sidecar start
+curl -fsS http://127.0.0.1:9910/health
+hermes plugins install discernible-io/hermes-identyclaw-webhook --enable
+```
+
 Leaves Hermes HMAC `/webhooks/{route}` unchanged.
 
 Follows the stock [Hermes Plugins](https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins/) flow:
@@ -12,9 +22,6 @@ Follows the stock [Hermes Plugins](https://hermes-agent.nousresearch.com/docs/us
 |---------|-------|
 | GitHub repo | `discernible-io/hermes-identyclaw-webhook` |
 | Plugin id / install dir | `identyclaw-webhooks` |
-
-Requires the host auth package ([hermes-identyclaw-auth](https://github.com/discernible-io/hermes-identyclaw-auth))
-with a healthy sidecar on `IDENTYCLAW_AUTH_PORT` (default `9910`).
 
 Catalog submission is optional; `owner/repo` is enough.
 
@@ -43,7 +50,7 @@ hermes plugins install discernible-io/hermes-identyclaw-webhook --enable
 ## Full playbook
 
 ```bash
-bash "$HERMES_HOME/hermes-identyclaw-auth/scripts/install-stock-hermes.sh" \
+bash "$HERMES_HOME/plugins/identyclaw-auth/scripts/install-stock-hermes.sh" \
   --a2a-public-url "https://YOUR.PUBLIC.HOST"
 ```
 
