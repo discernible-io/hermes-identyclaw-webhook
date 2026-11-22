@@ -15,6 +15,23 @@ def sidecar_base() -> str:
     return f"http://{host}:{port}"
 
 
+def _get(path: str, timeout: float = 10.0) -> dict:
+    req = urllib.request.Request(
+        sidecar_base().rstrip("/") + path,
+        headers={"Accept": "application/json"},
+        method="GET",
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:  # noqa: S310
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def health() -> bool:
+    try:
+        return bool(_get("/health").get("ok"))
+    except Exception:
+        return False
+
+
 def _post(path: str, body: dict, timeout: float = 60.0) -> dict:
     data = json.dumps(body).encode("utf-8")
     req = urllib.request.Request(
